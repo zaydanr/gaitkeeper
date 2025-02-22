@@ -1,7 +1,8 @@
 {% extends "template.html" %}
-{% block title %}Home{% endblock title %}
-{% block pageTitle %}Search{% endblock pageTitle %}
-{% block navLink %}search{% endblock navLink %}
+{% block title %}App{% endblock title %}
+{% block pageTitle %}Search / App{% endblock pageTitle %}
+{% block navLink %}form{% endblock navLink %}
+
 {% block body %}
 {{ super() }}
 <form class="pb-3 needs-validation" role="search" method="POST" action="" novalidate>
@@ -32,5 +33,3 @@
 </div>
 {% endif %}
 {% endblock results %}
-
-{% block footerClass %}fixed-bottom{% endblock footerClass %}

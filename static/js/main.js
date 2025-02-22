@@ -29,3 +29,22 @@ function loading() {
       }, false)
     })
   })()
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedTextEl = document.getElementById("animatedText");
+    const problemText = "Walking isn’t just movement—it’s a vital sign of health. For older adults, stroke survivors, and individuals with mobility impairments, precise gait tracking is essential. Yet, without continuous monitoring, early warning signs go unnoticed.";
+    
+    let i = 0;
+    const speed = 50; // Adjust the speed in milliseconds
+  
+    function typeWriter() {
+      if (i < problemText.length) {
+        animatedTextEl.innerHTML += problemText.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+  
+    typeWriter();
+  });
+  
