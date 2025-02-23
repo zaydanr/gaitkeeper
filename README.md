@@ -42,9 +42,10 @@ It integrates with the **GaitMap API** to detect abnormalities, track rehabilita
 - **Remote monitoring for therapists & clinicians**  
 - **Affordable & lightweight wearable**  
 
-📷 **Prototype Image:** *
+📷 **Prototype Image:** 
+
 <img width="736" alt="Screenshot 2025-02-23 at 11 47 11 AM" src="https://github.com/user-attachments/assets/ff7e3816-d3df-4b25-aa25-d65f9bb09f3c" />
-*  
+
 🎥 **Video Demo:** *(Include a link to the video.)*  
 
 ---
