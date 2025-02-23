@@ -91,12 +91,10 @@ It integrates with the **GaitMap API** to detect abnormalities, track rehabilita
 
 ## 🧑‍💻 **Installation & Setup**  
 
-```bash
 git clone https://github.com/your-username/GaitKeeper.git
+
 cd GaitKeeper
 
-```bash
 pip install -r requirements.txt
 
-```bash
 python app.py
