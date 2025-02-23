@@ -1,23 +1,18 @@
-// Custom.scss
-// Option B: Include parts of Bootstrap
+// ----------------------------------------------
+// ✅ Bootstrap Core Import
+// ----------------------------------------------
 
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// 1️⃣ Include Bootstrap functions first (needed for manipulating colors, SVGs, etc.)
 @import "../../node_modules/bootstrap/scss/functions";
 
-// 2. Include any default variable overrides here. CHANGE THIS TO YOUR PREFERRED THEME.
+// 2️⃣ Apply the custom theme from Daisy UI
 @import "themes/daisy-ui/synthwave.scss";
 
-// 3. Include remainder of required Bootstrap stylesheets
+// 3️⃣ Include Bootstrap core stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/root";
-
-// 6. Optionally include any other parts as needed
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
@@ -33,8 +28,132 @@
 @import "../../node_modules/bootstrap/scss/spinners";
 @import "../../node_modules/bootstrap/scss/tables";
 
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// 4️⃣ Include utilities API to generate additional utility classes
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
-// 8. Add additional custom code here
+// ----------------------------------------------
+// ✅ Global Styles
+// ----------------------------------------------
+
+// 🌍 Global Background and Text Settings
+body {
+  background: linear-gradient(135deg, #0B293E, #021E2D); 
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  font-family: 'Alegreya', serif;
+}
+
+// ----------------------------------------------
+// ✅ Problem Space Section
+// ----------------------------------------------
+
+// 📌 Section Layout
+#problemspace {
+  display: flex;
+  flex-direction: column; /* Ensures title stays at the top */
+  align-items: center; 
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+// 🏷️ Section Title Styling
+.problem-heading {
+  text-align: center;  /* Fully center the heading */
+  font-size: 3rem;
+  font-weight: bold;
+  color: #94DBFD;
+  margin-bottom: 1.5rem; /* Add spacing below the title */
+  padding-top: 1rem; /* Space from top of section */
+  width: 100%; /* Ensure full width */
+}
+
+// 📝 Bullet Points & Text Formatting
+.problem-text {
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem; /* Slightly smaller font for bullet points */
+}
+
+// 🎥 GIF Styling (Aligns with Text and Expands)
+.problem-gif {
+  width: 110%;  /* Increase GIF size */
+  max-width: 600px;  /* Prevents over-expansion */
+  margin-left: -30px; /* Moves slightly to the left */
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(148, 219, 253, 0.3);
+}
+
+// 📱 Responsive Adjustments for Smaller Screens
+@media (max-width: 768px) {
+  .problem-heading {
+    font-size: 2rem;
+  }
+
+  .problem-text {
+    max-width: 100%;
+  }
+
+  .problem-gif {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+// ----------------------------------------------
+// ✅ Typography & Font Settings
+// ----------------------------------------------
+
+// 📌 Import Alegreya Font
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap');
+
+// 🏷️ Apply Alegreya to All Text
+h1, h2, h3 {
+  font-family: 'Alegreya', serif;
+  font-weight: 700; /* Bold for headers */
+}
+
+p {
+  font-family: 'Alegreya', serif;
+  font-weight: 400; /* Regular for text */
+}
+
+// ----------------------------------------------
+// ✅ Navigation Bar Styling
+// ----------------------------------------------
+
+// 🏷️ General Navbar Styling
+.navbar {
+  font-size: 1.5rem;  /* Increase navbar text size */
+  font-weight: 600;   /* Make it bolder for readability */
+  letter-spacing: 0.5px; /* Adds slight spacing for aesthetics */
+}
+
+// 🎯 Navbar Links
+.navbar a {
+  font-size: 1.5rem;  /* Increase link size */
+  padding: 20px 25px; /* Adds better spacing for clickability */
+}
+
+// 🎯 Adjust spacing between navbar links
+.navbar-nav {
+  display: flex;
+  gap: 1.4rem;  /* Adjust space between navigation items */
+}
+
+.centered-gif {
+    display: block;
+    margin: auto;
+}
+
+// ----------------------------------------------
+// ✅ Import Additional Custom Code
+// ----------------------------------------------
 @import "headers";
+
+
+.container {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  

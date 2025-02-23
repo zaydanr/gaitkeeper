@@ -4,66 +4,102 @@
 
 {% block wholebody %}
 <!-- 1) Problem Space Section -->
-<div class="bg-dark px-4 py-5 mb-3 border-bottom" id="problemspace">
-  <h1 class="display-4 fw-bold text-white mb-4 text-center">The Problem Space</h1>
-  <div class="col-lg-8 mx-auto text-light fs-5">
-    <ul class="ps-3 text-start" style="list-style-type: disc;">
-      <li class="mb-3">
-        While undergoing physical therapy, nurses often track walking metrics such as walking speed, stability, and cycle.
-      </li>
-      <li class="mb-3">
-        Studies have shown that gait speed serves as a critical indicator of overall health, with slower walking speeds linked to increased risks of falls, cognitive decline, and other adverse outcomes.
-      </li>
-      <li class="mb-3">
-        Integrating mobility technicians into patient care has been associated with higher discharge-to-home rates and reduced hospital stays by an average of 2.4 days.
-      </li>
-    </ul>
-    <!-- Image without caption, with extra padding -->
-    <!-- <figure class="mt-6 mx-auto max-w-md p-4">
-      <img src="{{ url_for('static', filename='images/gait-phases.png') }}" alt="Gait Phases Diagram" class="w-full rounded shadow">
-    </figure> -->
+<div class="bg-dark px-4 py-5 mb-3 border-bottom flex flex-col md:flex-row items-center" id="problemspace">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+    
+    <div class="relative h-full w-full flex flex-col items-center justify-center">
+      <img src="{{ url_for('static', filename='images/finalimg.gif') }}" 
+           alt="Gait Analysis GIF" 
+           class="object-cover w-full h-auto md:h-[400px] rounded-lg shadow-lg">
+      <br></br>
+      <!-- Citation Text -->
+      <p class="gif-citation">
+        Source: <a href="https://relab.ethz.ch/research/past-research-projects/variable-impedance-actuation-of-assistive-devices-for-the-lower-limbs.html" 
+                   target="_blank" 
+                   class="citation-link">
+          ETH Zürich: Varied Impedance Actuation of Assistive Devices
+        </a>
+      </p>
+    </div>
+    
+
+    <!-- Right Column: Text & Bullet Points -->
+    <div class="text-white px-5 md:px-10">
+      <h1 class="font-alegreya text-4xl">The Problem Space</h1>
+      <ul class="list-disc pl-5 text-lg">
+        <li class="mb-3">While undergoing physical therapy, nurses often track walking metrics such as walking speed, stability, and cycle.</li>
+        <li class="mb-3">Studies have shown that gait speed serves as a critical indicator of overall health, with slower walking speeds linked to increased risks of falls, cognitive decline, and other adverse outcomes.</li>
+        <li class="mb-3">Integrating mobility technicians into patient care has been associated with higher discharge-to-home rates and reduced hospital stays by an average of 2.4 days.</li>
+      </ul>
+    </div>
+
   </div>
 </div>
 
+
+
 <!-- 2) Our Solution Section -->
 <div class="container my-5" id="oursolution">
-  <h2 class="mb-4">Our Solution</h2>
-  <p>
+  <h2 class="mb-4 text-center">Our Solution</h2>
+  <p class="text-center">
     GaitKeepers is a low-cost wearable that delivers real-time gait analysis. Integrate with telehealth for continuous monitoring and timely interventions.
   </p>
   <div class="row">
     <div class="col-sm-4">
       {{ macros.card(
-          title='Precision Sensors',
-          text='Uses IMUs + FSRs to track gait with clinical-grade accuracy.',
+          title='Hardware Components',
+          text='<ul class="text-left">
+                  <li>ESV32 (Microcontroller): Handles data processing and communication efficiently.</li>
+                  <li>IMU & SD Card Module: Captures motion data (acceleration, velocity, orientation) and stores raw gait data for analysis.
+                  </li>
+                  <li>Power & Controls: Regulator stabilizes power, button for manual data collection, and LED for system status feedback.
+                  </li>
+                  <li>Portable & Secure Fit: Battery-powered for mobility, with a Velcro strap ensuring accurate sensor placement.</li>
+                </ul>'| safe,
           button='Learn More',
-          buttonLink='#',
-          cardClasses='h-100',
+          buttonLink='#'| safe,
+          cardClasses='h-100 text-left title-center',
           buttonClasses='btn-outline-primary'
       )}}
     </div>
     <div class="col-sm-4">
       {{ macros.card(
-          title='Telehealth Integration',
-          text='Seamless data streaming to healthcare providers for remote monitoring.',
+          title='How Does It Actually Work?',
+          text='<ul class="text-left">
+                  <li>User Starts Data Capture: The user presses a button which triggers data collection via a JSON-based interface.</li>
+                  <li>Data Transmission (MQTT Protocol): A start signal is sent to the JSON file, broadcasting to Sensor 1 & 2, initiating gait motion data collection.</li>
+                  <li>Data Storage & Processing: Captured data is stored in CSV format and sent to a cloud database via MQTT. 
+                  </li>
+                  <li>Gait Analysis Using GaitMap API: The API extracts gait parameters helping detect mobility issues.</li>
+                </ul>'| safe,
           button='View Docs',
           buttonLink='#',
-          cardClasses='h-100',
+          cardClasses='h-100 text-left title-center',
           buttonClasses='btn-outline-primary'
       )}}
     </div>
     <div class="col-sm-4">
       {{ macros.card(
-          title='Affordable & Scalable',
-          text='Hardware costs under $50, easily replicable for large deployments.',
+          title='Why Consider Our Solution?',
+          text='<ul class="text-left">
+                  <li>Early Detection: IMU sensors help identify mobility issues in early stages.</li>
+                  <li>Post-Injury/Surgery Monitoring: Continuous tracking ensures accurate recovery assessment and rehabilitation progress.</li>
+                  <li>Real-Time Feedback: Analysis insights enable timely interventions and personalized treatment plans.</li>
+                  <li>AI-Based Fall Risk Prediction: Machine learning models analyze movement patterns to anticipate and prevent potential falls.</li>
+                </ul>'| safe,
           button='Get Started',
           buttonLink='#',
-          cardClasses='h-100',
+          cardClasses='h-100 text-left title-center',
           buttonClasses='btn-outline-primary'
       )}}
     </div>
   </div>
 </div>
+
+<!-- Another GIF -->
+<img src="{{ url_for('static', filename='images/gif2.gif') }}" 
+     alt="Gait Analysis GIF" 
+     class="centered-gif">
 
 <!-- 3) Demo Section -->
 <div class="container my-5" id="demo">
