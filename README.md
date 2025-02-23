@@ -1,21 +1,88 @@
-# GaitKeeper
-MedTech 2025 Hackathon Project
+# **GaitKeeper**
+**MedTech 2025 Hackathon Project**  
+GaitKeeper: Real-Time Gait Analysis for Rehabilitation  
+*A MedTech 2025 Hackathon Project*  
 
-Quick Start Template for Flask + Bootstrap + Sass + WTForms.
 
-Template Demo: https://flask-bootstrap-sass-wtforms.vercel.app/
+---
 
-## Setup
-```
-pip install -r requirements.txt
-npm i
-flask run
-```
+## 🏆 **Pitch**  
+Rehabilitation patients struggle to track their gait accurately.  
+Therapists face **burnout** from repetitive gait assessments.  
+Lack of **real-time feedback** slows recovery.  
 
-## Customization
-Some premade themes are already available in the [themes](https://github.com/Saptak625/Flask_Bootstrap_Sass_WTForms/tree/main/static/css/themes) folder. Simply change the line below in the main.scss file to the theme you would like to use. This will be autocompiled when the flask app is served.
-https://github.com/Saptak625/Flask_Bootstrap_Sass_WTForms/blob/24158ea50ee68b43a7183fe08886ca88dff8a9d3/static/css/main.scss#L7-L8
+### **🔹 Solution**  
+GaitKeeper is an innovative, **low-cost wearable** that provides **real-time gait analysis** using **IMU sensors and AI-based processing (GaitMap API)**.  
+It integrates seamlessly with **telehealth platforms** for remote rehabilitation.  
 
-### Add your own themes!
-You can add your own color theme to this template by creating a theme sass file as shown below. Then, simply import your new theme into the main.scss.
-https://github.com/Saptak625/Flask_Bootstrap_Sass_WTForms/blob/24158ea50ee68b43a7183fe08886ca88dff8a9d3/static/css/themes/electric_blue.scss#L1-L7
+---
+
+## 🚨 **The Problem: Why GaitKeeper?**  
+
+### **Challenges in Gait Rehabilitation**  
+✅ Patients lack access to **affordable gait tracking tools** for at-home therapy.  
+✅ Therapists manually track gait, leading to **burnout** and inconsistencies.  
+✅ No **real-time feedback** on progress, causing slower recovery.  
+
+### **User Needs**  
+👩‍🦽 **Patients:** Need a simple, wearable **gait monitoring** solution.  
+👨‍⚕️ **Therapists:** Need an **automated** tracking tool to **reduce workload**.  
+🏥 **Healthcare systems:** Need a **scalable, low-cost** rehabilitation tool.  
+
+---
+
+## 🔬 **Our Solution: GaitKeeper**  
+
+GaitKeeper is a **wearable device** that uses **IMU sensors and force sensors** to track gait **in real-time**.  
+It integrates with the **GaitMap API** to detect abnormalities, track rehabilitation progress, and predict fall risks.  
+
+✅ **Key Features:**  
+- **Stride analysis, step symmetry, gait speed, cadence tracking**  
+- **Real-time gait visualization**  
+- **Remote monitoring for therapists & clinicians**  
+- **Affordable & lightweight wearable**  
+
+📷 **Prototype Image:** *(Include an image here of the device being worn.)*  
+🎥 **Video Demo:** *(Include a link to the video.)*  
+
+---
+
+## 🛠 **How It Works**  
+
+1️⃣ **User Starts Data Capture:**  
+   - Press a button or trigger data collection via **JSON API**.  
+
+2️⃣ **Data Transmission:**  
+   - The system sends data **via MQTT** from two **IMU sensors**.  
+
+3️⃣ **Data Processing:**  
+   - **Raw sensor data → CSV file → GaitMap API analysis.**  
+   - Extracts **gait speed, stride length, cadence, stability metrics, and anomalies.**  
+
+4️⃣ **Real-Time Visualization & Alerts:**  
+   - Patients and therapists receive **instant feedback** on progress.  
+   - AI models predict **fall risks & mobility impairments.**  
+
+---
+
+## 🏗 **Hardware Components**  
+
+| Component      | Function  |
+|---------------|-----------|
+| **ESP32**     | Microcontroller for data processing & communication |
+| **IMU Sensors** | Captures motion data (acceleration, angular velocity, orientation) |
+| **SD Card Module** | Stores raw gait data locally |
+| **Regulator** | Ensures stable power delivery |
+| **Button**    | Manually starts/stops data collection |
+| **LED Indicator** | Provides real-time system status |
+| **Battery-Powered** | Enables portable use |
+| **Velcro Strap** | Attaches the sensor to the shoe for accurate data capture |
+
+---
+
+## 📊 **Software Stack & API Usage**  
+
+- **Flask** → Web interface for real-time gait analysis.  
+- **Matplotlib** → Plots gait parameters dynamically.  
+- **GaitMap API** → Processes IMU data to extract **stride length, cadence, stability, etc.**  
+- **MQTT Protocol** → Streams data from sensors to the cloud.  
