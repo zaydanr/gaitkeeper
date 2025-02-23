@@ -42,7 +42,9 @@ It integrates with the **GaitMap API** to detect abnormalities, track rehabilita
 - **Remote monitoring for therapists & clinicians**  
 - **Affordable & lightweight wearable**  
 
-📷 **Prototype Image:** *(Include an image here of the device being worn.)*  
+📷 **Prototype Image:** *
+<img width="736" alt="Screenshot 2025-02-23 at 11 47 11 AM" src="https://github.com/user-attachments/assets/ff7e3816-d3df-4b25-aa25-d65f9bb09f3c" />
+*  
 🎥 **Video Demo:** *(Include a link to the video.)*  
 
 ---
@@ -62,7 +64,6 @@ It integrates with the **GaitMap API** to detect abnormalities, track rehabilita
 4️⃣ **Real-Time Visualization & Alerts:**  
    - Patients and therapists receive **instant feedback** on progress.  
    - AI models predict **fall risks & mobility impairments.**  
-
 ---
 
 ## 🏗 **Hardware Components**  
