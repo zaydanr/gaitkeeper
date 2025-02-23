@@ -98,15 +98,30 @@ def plot_analysis():
             stride_times = sensor_data["stride_time"]
 
     # Fallback: If stride_times is empty, use a dummy list
-    if not stride_times:
-        stride_times = [1.0, 1.2, 1.1, 1.3, 1.2, 1.4, 1.1]
+    # if not stride_times:
+    #     stride_times = [1.0, 1.2, 1.1, 1.3, 1.2, 1.4, 1.1]
 
-    # Create a plot using Matplotlib
+    # # Create a plot using Matplotlib
+    # plt.figure(figsize=(10, 6))
+    # plt.plot(stride_times, marker='o', linestyle='-', color='blue')
+    # plt.title("Stride Time Across Strides")
+    # plt.xlabel("Stride Index")
+    # plt.ylabel("Stride Time (s)")
+    # plt.grid(True)
+
+    # Read imu_data.csv
+    imu_data = pd.read_csv('imu_data.csv')
+
+    # Plot the data
     plt.figure(figsize=(10, 6))
-    plt.plot(stride_times, marker='o', linestyle='-', color='blue')
-    plt.title("Stride Time Across Strides")
-    plt.xlabel("Stride Index")
-    plt.ylabel("Stride Time (s)")
+    # first row is time, second row is acc_x, third row is acc_y, fourth row is acc_z
+    plt.plot(imu_data.iloc[:, 0], imu_data.iloc[:, 1], label='acc_x')
+    plt.plot(imu_data.iloc[:, 0], imu_data.iloc[:, 2], label='acc_y')
+    plt.plot(imu_data.iloc[:, 0], imu_data.iloc[:, 3], label='acc_z')
+    plt.title("IMU Data")
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Acceleration (m/s^2)")
+    plt.legend()
     plt.grid(True)
 
     # Save plot to a BytesIO buffer
