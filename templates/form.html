@@ -1,0 +1,88 @@
+{% extends "template.html" %}
+{% block title %}App{% endblock title %}
+{% block pageTitle %}Search / App{% endblock pageTitle %}
+{% block navLink %}form{% endblock navLink %}
+
+{% block body %}
+{{ super() }}
+<form class="pb-3 needs-validation" role="search" method="POST" action="" novalidate>
+    <div class="input-group mb-3">
+        {% if inputForm.inputString.errors %}
+        {{ inputForm.inputString(class="form-control is-invalid") }}
+        {% for error in inputForm.inputString.errors %}
+        <span class="invalid-feedback">{{ error }}</span>
+        {% endfor %}
+        {% else %}
+        {{ inputForm.inputString(class="form-control") }}
+        {% endif %}
+        {{ inputForm.submit(class="btn btn-outline-primary") }}
+    </div>
+</form>
+<a href="#" class="btn btn-outline-primary">Click Me</a>
+
+<!-- Button to trigger gait analysis -->
+<button id="runAnalysisBtn" class="btn btn-primary">Run Gait Analysis</button>
+
+<!-- Results Display -->
+<div id="results"></div>
+
+<script>
+  document.getElementById("runAnalysisBtn").addEventListener("click", function() {
+    fetch("/run_analysis")
+      .then(response => response.json())
+      .then(data => {
+        let output = "<h3>Gait Analysis Results</h3>";
+        output += `<p><strong>Number of Strides:</strong> ${JSON.stringify(data.num_strides)}</p>`;
+        output += `<p><strong>Temporal Parameters:</strong> ${JSON.stringify(data.temporal_params)}</p>`;
+        output += `<p><strong>Spatial Parameters:</strong> ${JSON.stringify(data.spatial_params)}</p>`;
+        document.getElementById("results").innerHTML = output;
+      })
+      .catch(error => console.error("Error fetching analysis:", error));
+  });
+</script>
+
+<!-- Start and Stop Buttons -->
+<button id="startTestBtn" class="btn btn-success">Start Test</button>
+<button id="stopTestBtn" class="btn btn-danger">Stop Test</button>
+
+<!-- Display Test Results -->
+<div id="testResults"></div>
+
+<script>
+  document.getElementById("startTestBtn").addEventListener("click", function() {
+    fetch("/start_test", { method: "POST" })
+      .then(response => response.json())
+      .then(data => alert(data.message))
+      .catch(error => console.error("Error starting test:", error));
+  });
+
+  document.getElementById("stopTestBtn").addEventListener("click", function() {
+    fetch("/stop_test", { method: "POST" })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        document.getElementById("testResults").innerHTML = `<pre>${JSON.stringify(data.results, null, 2)}</pre>`;
+      })
+      .catch(error => console.error("Error stopping test:", error));
+  });
+</script>
+
+<!-- For example, in index.html, add this where you want the plot to appear: -->
+<img src="/plot_analysis" alt="Gait Analysis Plot">
+
+
+{% endblock body %}
+
+{% block results %}
+{{ super() }}
+{% if data != None %}
+<div id="data">
+    {% if noResults %}
+    <h3 class="text-center">No Results</h3>
+    {% else %}
+    <h3>Input</h3>
+    <p>{{ data }}</p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock results %}
