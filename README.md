@@ -6,6 +6,7 @@ GaitKeeper: Real-Time Gait Analysis for Rehabilitation
  <img width="838" alt="Screenshot 2025-02-23 at 11 34 25 AM" src="https://github.com/user-attachments/assets/1f34bb80-b559-4648-b79c-c1796257165a" />
 
 <img width="453" alt="Screenshot 2025-02-23 at 11 35 07 AM" src="https://github.com/user-attachments/assets/2972e449-af08-4cbf-9b85-f0da78e7acfe" />
+<img width="830" alt="Screenshot 2025-02-23 at 11 39 59 AM" src="https://github.com/user-attachments/assets/b4d305d3-af39-4142-beb5-dd3a9f8e8a08" />
 
 ---
 
